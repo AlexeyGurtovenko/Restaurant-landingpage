@@ -1,0 +1,17 @@
+.text-info {
+  display: inline-block;
+  @include font-primary;
+  font-size: 14px;
+  text-align: center;
+  color: $color-white;
+  letter-spacing: 1px;
+
+  // Большие девайсы (большие десктопы, >= 992px <= 1199)
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    font-size: 13px;
+  }
+  // Средние девайсы («таблетки», >= 768px < 991)
+  @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    font-size: 12px;
+  }
+}

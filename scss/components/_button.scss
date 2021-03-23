@@ -1,0 +1,28 @@
+//Button component
+.button {
+  display: inline-block;
+  @include font-primary;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: $color-white;
+  border: none;
+  border-radius: 5px;
+  min-width: 200px;
+  height: 60px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &_primary {
+    background-color: $color-primary;
+  }
+
+  &_secondary {
+    background-color: transparent;
+    border: 1px solid $color-white;
+  }
+}

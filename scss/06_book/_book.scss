@@ -1,0 +1,35 @@
+.book {
+  padding-top: 75px;
+  padding-bottom: 84px;
+
+  &__form-wrapper {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 277px);
+    grid-template-rows: repeat(4, 60px);
+    gap: 10px;
+
+    button {
+      grid-column-start: span 2;
+    }
+
+    // Большие девайсы (большие десктопы, >= 992px <= 1199)
+    @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $screen-sm) {
+      grid-template-columns: 1fr;
+      button {
+        grid-column-start: span 1;
+      }
+    }
+  }
+
+  &__info {
+    @include font-primary();
+    font-weight: normal;
+    color: rgba($color-secondary, 0.5);
+    padding: 43px 0px;
+  }
+}

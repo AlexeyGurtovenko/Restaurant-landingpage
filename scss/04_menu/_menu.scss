@@ -1,0 +1,117 @@
+.menu {
+  &__header {
+    padding-top: 81px;
+  }
+
+  &__subtitle {
+    padding-top: 32px;
+    padding-bottom: 50px;
+  }
+
+  &__tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    // Малые девайсы (< 576px)
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+  }
+
+  &__tab {
+    @include font-primary();
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    color: $color-secondary;
+    padding: 21px 41px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    & + & {
+      border-left: 1px solid rgba($color-secondary, 0.2);
+    }
+
+    &_active {
+      font-size: 15px;
+      color: $color-primary;
+    }
+
+    // Средние девайсы («таблетки», >= 768px < 991)
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      padding: 21px 31px;
+    }
+    // Малые девайсы («ландшафтные телефоны», >= 576px < 767)
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      padding: 11px 21px;
+    }
+    // Малые девайсы (< 576px)
+    @media (max-width: $screen-sm) {
+      padding: 11px 11px;
+    }
+  }
+
+  &__items-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(363px, 1fr));
+    grid-template-rows: repeat(7, minmax(66px, 1fr));
+    column-gap: 88px;
+    padding: 50px 0px;
+    justify-items: center;
+
+    grid-auto-rows: 66px;
+
+    // Большие девайсы (большие десктопы, >= 1200px <= 1439)
+    @media (min-width: $screen-xl) and (max-width: $screen-xl-max) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 44px;
+      row-gap: 10px;
+    }
+    // Большие девайсы (большие десктопы, >= 992px <= 1199)
+    @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+      column-gap: 0px;
+    }
+    // Средние девайсы («таблетки», >= 768px < 991)
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      column-gap: 15px;
+      padding: 25px 0px;
+      grid-template-rows: repeat(auto-fill, 1fr);
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item {
+  &__main-info {
+    display: flex;
+    @include font-secondary();
+    font-size: 18px;
+  }
+
+  &__descr {
+    @include font-primary();
+    font-size: 13px;
+    color: rgba($color-secondary, 0.5);
+  }
+}
+
+.main-info {
+  &__name {
+  }
+  &__separator {
+    padding: 0px 10px;
+    letter-spacing: 4px;
+  }
+  &__cost {
+  }
+}
+
+.justify-center {
+  text-align: center;
+}

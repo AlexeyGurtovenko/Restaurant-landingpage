@@ -1,0 +1,52 @@
+//Nav component
+.nav {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba($color-white, 0.2);
+
+  &__link {
+    width: 133px;
+    margin: auto 0;
+    text-align: center;
+
+    a {
+      @include font-primary;
+      line-height: 18px;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-weight: bold;
+
+      transition: color 0.2s ease, font-size 0.1s ease;
+
+      &:hover {
+        color: $color-primary;
+        font-size: 14px;
+      }
+    }
+  }
+
+  // Большие девайсы (большие десктопы, >= 992px <= 1199)
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    &__link {
+      width: 100px;
+      a {
+        font-size: 12px;
+        &:hover {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  // Средние девайсы («таблетки», >= 768px < 991)
+  @media (max-width: $screen-md-max) {
+    display: none;
+  }
+}

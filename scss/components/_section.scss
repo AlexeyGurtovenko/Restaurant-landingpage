@@ -1,0 +1,224 @@
+@mixin img__container($position: "left") {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    border: 20px solid $color-primary;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @if $position == "left" {
+      left: -25%;
+    } @else if $position == "right" {
+      right: -25%;
+    }
+
+    height: 210px;
+    width: 210px;
+    border-radius: 5px;
+
+    // Большие девайсы (большие десктопы, >= 992px <= 1199)
+    @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+      height: 170px;
+      width: 170px;
+    }
+
+    // Средние девайсы («таблетки», >= 768px < 991)
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      height: 110px;
+      width: 110px;
+      border-width: 15px;
+    }
+  }
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+    /* еще больше контроля с max-width */
+    max-width: 475px;
+    box-shadow: 0px 0px 50px $color-dark;
+    border-radius: 5px;
+
+    // Большие девайсы (большие десктопы, >= 1200px <= 1439)
+    @media (min-width: $screen-xl) and (max-width: $screen-xl-max) {
+      max-width: 420px;
+    }
+
+    // Большие девайсы (большие десктопы, >= 992px <= 1199)
+    @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+      max-width: 340px;
+    }
+
+    // Средние девайсы («таблетки», >= 768px < 991)
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      max-width: 280px;
+    }
+  }
+}
+
+.common-section {
+  font-family: "Poppins";
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  &__title {
+    text-align: center;
+    padding: 45px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Средние девайсы («таблетки», >= 768px < 991)
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    flex: 0 1 50%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    // Малые девайсы («ландшафтные телефоны», >= 576px < 767)
+    @media (max-width: $screen-sm-max) {
+      flex-basis: auto;
+    }
+  }
+
+  &__content-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__header {
+  }
+
+  &__subtitle {
+    padding-top: 18px;
+    padding-bottom: 26px;
+  }
+
+  &__text {
+  }
+
+  &__img_left {
+    flex: 0 1 50%;
+    display: flex;
+    justify-content: flex-end;
+    transform: translateX(-50px);
+
+    // Средние девайсы («таблетки», >= 768px < 991)
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      transform: translateX(0%);
+      margin: 30px;
+    }
+    // Малые девайсы («ландшафтные телефоны», >= 576px < 767)
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
+
+    .img__container {
+      @include img__container("left");
+    }
+  }
+  &__img_right {
+    flex: 0 1 50%;
+    display: flex;
+    justify-content: flex-start;
+    transform: translateX(50px);
+
+    // Средние девайсы («таблетки», >= 768px < 991)
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+      transform: translateX(0%);
+      margin: 30px;
+    }
+
+    // Малые девайсы («ландшафтные телефоны», >= 576px < 767)
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
+
+    .img__container {
+      @include img__container("right");
+    }
+  }
+}
+
+.section-title {
+  @include font-primary();
+  display: inline-block;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+
+  // Большие девайсы (большие десктопы, >= 992px <= 1199)
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    font-size: 11px;
+  }
+}
+
+.section-header {
+  @include font-secondary();
+  display: inline-block;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 48px;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 18px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-bottom: 5px solid $color-primary;
+    border-radius: 5px;
+    width: 65px;
+  }
+
+  // Большие девайсы (большие десктопы, >= 992px <= 1199)
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-max),
+    (max-width: $screen-sm-max) {
+    font-size: 30px;
+  }
+}
+
+.section-subtitle {
+  @include font-primary();
+  display: inline-block;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 1px;
+
+  // Большие девайсы (большие десктопы, >= 992px <= 1199)
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    font-size: 16px;
+  }
+}
+
+.section-text {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+
+  // Большие девайсы (большие десктопы, >= 992px <= 1199)
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    font-size: 13px;
+  }
+}

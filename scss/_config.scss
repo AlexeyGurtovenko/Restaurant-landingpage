@@ -1,0 +1,100 @@
+// === colors ===
+$color-white: #ffffff;
+$color-dark: black;
+$color-primary: #e8c300;
+$color-secondary: #333333;
+$color-input: #e5e5e5;
+// === / colors ===
+
+// ====== media break points =======
+// Экстрамалые девайсы («телефоны», < 576px)
+// $screen-xs: 576px;
+
+$screen-sm: 576px; // Малые девайсы («ландшафтные телефоны», >= 576px < 767)
+$screen-sm-max: 767px; // Малые девайсы («ландшафтные телефоны», >= 576px < 767)
+
+$screen-md: 768px; // Средние девайсы («таблетки», >= 768px < 991)
+$screen-md-max: 991px; // Средние девайсы («таблетки», >= 768px < 991)
+
+$screen-lg: 992px; // Большие девайсы (десктопы, >= 992px < 1199)
+$screen-lg-max: 1199px; // Большие девайсы (десктопы, >= 992px < 1199)
+
+$screen-xl: 1200px; // Экстрабольшие девайсы (большие десктопы, >= 1200px < 1440)
+$screen-xl-max: 1439px; // Экстрабольшие девайсы (большие десктопы, >= 1200px < 1440)
+
+$screen-xxl: 1440px; // XXL девайсы (большие десктопы, >= 1440px)
+// ====== / media break points =====
+
+// == fonts ===
+// Poppins
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+// Banny
+@font-face {
+  font-family: "Banny";
+  src: url("/fonts/Banny-BoldRound.otf");
+}
+
+// == / fonts ===
+
+// === mixins ===
+@mixin font-primary {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin font-secondary {
+  font-family: "Banny", sans-serif;
+}
+// === / mixins ===
+
+input,
+textarea {
+  @include font-primary();
+  border: none;
+  background-color: $color-input;
+  border-radius: 5px;
+  padding: 20px 20px;
+  font-size: 14px;
+
+  &::placeholder {
+    color: rgba($color-secondary, 0.5);
+  }
+}
+
+input[type="date"],
+input[type="time"] {
+  color: $color-input;
+  width: auto;
+
+  &:before {
+    color: rgba($color-secondary, 0.5);
+    content: attr(placeholder);
+  }
+  &:focus {
+    color: rgba($color-secondary, 0.5);
+    &:before {
+      content: "" !important;
+    }
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: $screen-xxl + 1) {
+    width: 85%;
+  }
+}
